@@ -1,0 +1,23 @@
+## Build and Publish outputs
+[Bb]in/
+[Oo]bj/
+publish*/
+publish-arm64/
+
+## Package artifacts
+*.msi
+*.wixpdb
+*.zip
+*.tar.gz
+
+## Visual Studio / Rider
+.vs/
+.idea/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Temporary / Logs
+*.log
+*.tmp
