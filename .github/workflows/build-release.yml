@@ -44,11 +44,16 @@ jobs:
           dotnet publish PCSpecAgent/PCSpecAgent.csproj -c Release -r win-arm64 --self-contained true -p:PublishSingleFile=true -o publish-arm64
 
       - name: Build WiX MSI Installers
-        shell: pwsh
+        shell: cmd
         run: |
-          $env:PATH += ";$env:USERPROFILE\.dotnet\tools"
+          set "PATH=%USERPROFILE%\.dotnet\tools;%PATH%"
+          wix --version
+          dir publish
+          dir publish-arm64
           wix build -arch x64 Package.wxs -o NusambaNodeCore-Setup.msi
+          if errorlevel 1 exit /b 1
           wix build -arch arm64 Package.arm64.wxs -o NusambaNodeCore-Setup-arm64.msi
+          if errorlevel 1 exit /b 1
 
       - name: Create Zip Bundle
         shell: pwsh
