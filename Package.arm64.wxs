@@ -3,8 +3,7 @@
            Manufacturer="BPR Nusamba" 
            Version="3.0.0.0" 
            UpgradeCode="5a76d03f-cef2-443b-9853-aa1b2c9d3e4f" 
-           Scope="perMachine"
-           Architecture="arm64">
+           Scope="perMachine">
     
     <MajorUpgrade DowngradeErrorMessage="Versi yang lebih baru dari Nusamba NodeCore Agent sudah terpasang." Schedule="afterInstallInitialize" />
     

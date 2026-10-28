@@ -47,13 +47,10 @@ jobs:
         shell: cmd
         run: |
           set "PATH=%USERPROFILE%\.dotnet\tools;%PATH%"
-          wix --version
-          wix build -arch x64 Package.wxs -o NusambaNodeCore-Setup.msi > wix_x64.log 2>&1
-          type wix_x64.log
-          if not exist NusambaNodeCore-Setup.msi exit /b 1
-          wix build -arch arm64 Package.arm64.wxs -o NusambaNodeCore-Setup-arm64.msi > wix_arm64.log 2>&1
-          type wix_arm64.log
-          if not exist NusambaNodeCore-Setup-arm64.msi exit /b 1
+          wix build -arch x64 Package.wxs -o NusambaNodeCore-Setup.msi
+          if errorlevel 1 exit /b 1
+          wix build -arch arm64 Package.arm64.wxs -o NusambaNodeCore-Setup-arm64.msi
+          if errorlevel 1 exit /b 1
 
       - name: Create Zip Bundle
         shell: pwsh
