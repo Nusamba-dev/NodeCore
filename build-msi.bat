@@ -27,7 +27,7 @@ if %ERRORLEVEL% neq 0 (
 
 echo.
 echo [2/4] Building NusambaNodeCore-Setup.msi (x64)...
-wix build Package.wxs -o NusambaNodeCore-Setup.msi
+wix build -arch x64 Package.wxs -o NusambaNodeCore-Setup.msi
 if %ERRORLEVEL% neq 0 (
     echo [ERROR] Failed to build x64 MSI!
     pause
@@ -45,7 +45,7 @@ if %ERRORLEVEL% neq 0 (
 
 echo.
 echo [4/4] Building NusambaNodeCore-Setup-arm64.msi...
-wix build Package.arm64.wxs -o NusambaNodeCore-Setup-arm64.msi
+wix build -arch arm64 Package.arm64.wxs -o NusambaNodeCore-Setup-arm64.msi
 if %ERRORLEVEL% neq 0 (
     echo [ERROR] Failed to build arm64 MSI!
     pause

@@ -47,8 +47,8 @@ jobs:
         shell: pwsh
         run: |
           $env:PATH += ";$env:USERPROFILE\.dotnet\tools"
-          wix build Package.wxs -o NusambaNodeCore-Setup.msi
-          wix build Package.arm64.wxs -o NusambaNodeCore-Setup-arm64.msi
+          wix build -arch x64 Package.wxs -o NusambaNodeCore-Setup.msi
+          wix build -arch arm64 Package.arm64.wxs -o NusambaNodeCore-Setup-arm64.msi
 
       - name: Create Zip Bundle
         shell: pwsh
